@@ -1,3 +1,4 @@
+
 function g(){
     
     let d = fetch("https://www.dnd5eapi.co/api/2014/spells/acid-arrow")
@@ -13,7 +14,6 @@ function g(){
 
 const c = g()
 console.log(c)
-g();
 
 function createCard(tag) {
   const cardContainer = document.querySelector(".card-container");
