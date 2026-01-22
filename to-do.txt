@@ -1,3 +1,5 @@
-1: figure out what the actual fuck im doing
-2: get the api working or whatever - done
-3: webpage
+1. grab information from the api
+2. create dynamic cards 
+3. generate links that match to categories/cards
+4. make website look nice
+5. devloping each website 
