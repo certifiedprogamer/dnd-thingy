@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,12 +11,29 @@
       .sub-header {
         font-size: 1.8em;
       }
+
+      .head::after {
+        content: " ▼";
+      }
+
+      .head:hover {
+        cursor: pointer;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <a href="/main.html"><h1>Return</h1></a>
+    </header>
+  </body>
   <script type="module">
     import { grabData } from "./main.js";
     grabData("/api/2014/rules").then((data) => {
+      console.log(data);
       data["results"].forEach((rule) => {
         //creating rule section which holds header and relavent information
         let section = document.createElement("div");
@@ -25,10 +42,18 @@
         //creating header for each rule section
         let header = document.createElement("h1");
         header.innerHTML = rule["name"];
+        header.classList.add("head");
         section.appendChild(header);
 
         //creating list for each rule section
         let list = document.createElement("ul");
+        list.classList.add("hidden");
+
+        // create a basic dropdown for each section
+        header.addEventListener("click", function () {
+          list.classList.toggle("hidden");
+        });
+
         grabData(rule["url"]).then((data) => {
           data["subsections"].forEach((subSection) => {
             grabData(subSection["url"]).then((data) => {
