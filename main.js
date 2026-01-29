@@ -4,7 +4,6 @@ function grabData(link='') {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       return data;
     });
   return d;

@@ -4,14 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skills</title>
-  </head>
-  <body>
-    <a href="main.html">Return</a>
-  </body>
-  <script type="module">
+    <script type="module">
     import { grabData } from "./main.js";
     grabData("/api/2014/skills").then((data) => {
-      const bod = document.querySelector("body");
+      const body = document.querySelector("body");
       data["results"].forEach((skill) => {
         // new container to hold it all
         let cont = document.createElement("div");
@@ -26,8 +22,12 @@
           description.innerHTML = data["desc"];
           cont.appendChild(description);
         });
-        bod.appendChild(cont);
+        body.appendChild(cont);
       });
     });
   </script>
+  </head>
+  <body>
+    <a href="main.html">Return</a>
+  </body>
 </html>
